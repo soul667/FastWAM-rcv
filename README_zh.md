@@ -17,6 +17,7 @@
 
 - [File Structure](#file-structure)
 - [环境安装](#环境安装)
+- [Docker](#docker)
 - [模型准备](#模型准备)
 - [数据集下载](#数据集下载)
 - [使用 Release 权重推理](#使用-release-权重推理)
@@ -58,6 +59,27 @@ conda activate fastwam
 pip install -U pip
 pip install torch==2.7.1+cu128 torchvision==0.22.1+cu128 --extra-index-url https://download.pytorch.org/whl/cu128
 pip install -e .
+```
+
+## Docker
+
+仅构建镜像：
+
+```bash
+docker build -t fastwam:latest .
+```
+
+使用 docker compose 构建并启动：
+
+```bash
+docker compose up --build -d
+docker compose exec fastwam bash
+```
+
+如果你希望在构建镜像时安装 FastWAM 依赖：
+
+```bash
+docker build --build-arg INSTALL_PROJECT=true -t fastwam:full .
 ```
 
 ## 模型准备

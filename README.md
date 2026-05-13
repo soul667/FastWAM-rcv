@@ -17,6 +17,7 @@ This repository contains the training and evaluation code for FastWAM on LIBERO 
 
 - [File Structure](#file-structure)
 - [Environment Setup](#environment-setup)
+- [Docker](#docker)
 - [Model Preparation](#model-preparation)
 - [Dataset Download](#dataset-download)
 - [Inference with Released Checkpoints](#inference-with-released-checkpoints)
@@ -58,6 +59,27 @@ conda activate fastwam
 pip install -U pip
 pip install torch==2.7.1+cu128 torchvision==0.22.1+cu128 --extra-index-url https://download.pytorch.org/whl/cu128
 pip install -e .
+```
+
+## Docker
+
+Build image only:
+
+```bash
+docker build -t fastwam:latest .
+```
+
+Build and run with docker compose:
+
+```bash
+docker compose up --build -d
+docker compose exec fastwam bash
+```
+
+If you need to install FastWAM dependencies during image build:
+
+```bash
+docker build --build-arg INSTALL_PROJECT=true -t fastwam:full .
 ```
 
 ## Model Preparation

@@ -1,0 +1,14 @@
+services:
+  fastwam:
+    image: fastwam:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_PROJECT: "false"
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash
+    volumes:
+      - ./:/workspace
