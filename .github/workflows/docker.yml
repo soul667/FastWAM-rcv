@@ -25,6 +25,9 @@ on:
       - ".github/workflows/docker.yml"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   docker-build-and-compose-check:
     runs-on: ubuntu-latest
